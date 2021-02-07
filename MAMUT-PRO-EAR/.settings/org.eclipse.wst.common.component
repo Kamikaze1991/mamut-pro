@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="MAMUT-PRO-EAR">
+        <wb-resource deploy-path="/" source-path="/EarContent" tag="defaultRootSource"/>
+        <dependent-module archiveName="MAMUT-PRO-EJB.jar" deploy-path="/" handle="module:/resource/MAMUT-PRO-EJB/MAMUT-PRO-EJB">
+            <dependent-object/>
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="MAMUT-PRO-REST.war" deploy-path="/" handle="module:/resource/MAMUT-PRO-REST/MAMUT-PRO-REST">
+            <dependent-object/>
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="MAMUT-PRO-CLI.war" deploy-path="/" handle="module:/resource/MAMUT-PRO-CLI/MAMUT-PRO-CLI">
+            <dependent-object/>
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="MAMUT-PRO-BUSINESS.jar" deploy-path="/lib" handle="module:/resource/MAMUT-PRO-BUSINESS/MAMUT-PRO-BUSINESS">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+    </wb-module>
+</project-modules>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+	<title></title>
+  <link rel="stylesheet" type="text/css" href="site_media/css/chocolate.css">
+  <link rel="stylesheet" type="text/css" href="site_media/css/richi-buttons.css">
+  <link rel="stylesheet" type="text/css" href="site_media/css/richi-pro.css">
+  <link rel="stylesheet" type="text/css" href="site_media/css/richi-table.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+
+<body ng-controller="appController">
+
+<header>
+  <nav class="nav-bar">
+    <div class="banner">
+      <img class="pjX" src="site_media/assets/logo.png">
+    </div>
+    <div class="contentheader">
+      Administracion General
+    </div>
+    <div class="button-close">
+      <a id="btn-logout" class="fa fa-power-off" aria-hidden="true"></a>
+    </div>
+  </nav>
+</header>
+
+<div class="vertical-container">
+  <div class="menu-header">
+    <div class="credenciales col-10">
+      <div class="fotorea col-3">
+        <img id="picarea" class="picarea" src="site_media/assets/andromon.jpg">
+      </div>
+      <div class="textarea col-7">
+        <h1 id="Usuariospan">Richi BPinargote</h1>
+        <h2>Administrador</h2>
+      </div>
+    </div>
+
+  </div>
+  <div class="menu-area style-4">
+    <div id="wrapper">
+        <ul class="menu" ng-if="menuNivel(1).length == 0 ? true : false">
+            <section>
+                <div class="loader"></div>
+            </section>
+        </ul>
+        <ul ng-if="menuNivel(1).length > 0 ? true : false" class="menu">
+            
+            <li id="{{clt.nombre_descripcion}}" ng-repeat="clt in menuNivel(1)">
+              <a href="#" ng-cloak><span><i class="{{clt.icono}}" aria-hidden="true"></i></span>{{clt.nombre}}</a>
+              <ul>
+                <li id="{{clt_2.nombre_descripcion}}" ng-repeat="clt_2 in menuPadre(clt.id)">
+                  <a href="#" ng-cloak><i class="{{clt_2.icono}}" aria-hidden="true"></i>{{clt_2.nombre}}</a>
+                  <ul>
+                    <li id="{{clt_3.nombre_descripcion}}" ng-repeat="clt_3 in menuPadre(clt_2.id)">
+                      <a href="#!/empleado-admin" ng-cloak><i class="{{clt_3.icono}}" aria-hidden="true"></i>{{clt_3.nombre}}</a>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+              {{initialJS($index)}}
+            </li>
+           
+            
+          </ul>
+
+    </div>
+  </div>
+</div>
+
+
+
+
+    <div class="container" ng-view></div>
+
+
+<script type="text/javascript" src="site_media/js/jquery.js"></script>
+<script type="text/javascript" src="site_media/js/chocolate.js"></script>
+<script type="text/javascript" src="site_media/js/angular.min.js"></script>
+<script type="text/javascript" src="site_media/js/angular-route.min.js"></script>
+<script type="text/javascript" src="app.js"></script>
+<script type="text/javascript" src="pages/empleado/empleado-controller.js"></script>
+
+</body>
+</html>

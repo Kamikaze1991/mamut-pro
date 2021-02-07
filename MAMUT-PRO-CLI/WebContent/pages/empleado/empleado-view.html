@@ -1,0 +1,336 @@
+<div id="frm" class="cellspace">
+  <div class="ch">
+    <div class="tx">Administracion de Empleados</div>
+  </div>
+  <form name="form" autocomplete="off" ng-submit="actionSubmit(formSave)" id="frm_current" class="formspace" novalidate>
+
+    
+
+
+    <div class="frm-container">
+      <div class="frm-container-header">
+        Datos Personales
+      </div>
+      <div class="frm-container-body">
+        <div class="col-5">
+          <div class="controlplus">
+            <label class="col-3">Identificador</label>
+            <div class="ctl col-7">
+              <input type="text" ng-blur="TriggerPersona($event)" name="identificador"  ng-model="_persona.identificador" spellcheck="false" maxlength="100" autocomplete="off" required />
+              <div class="alerta" ng-show="!form.identificador.$valid && validacion">
+                Revise bien la informacion por favor
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-5">
+          <div class="controlplus">
+            <label class="col-3">Apodo</label>
+            <div class="ctl col-7">
+              <input type="text" #alias="ngModel" id="alias" name="alias" ng-model="_persona.alias" spellcheck="false" maxlength="100" autocomplete="off" required />
+              <div class="alerta" ng-show="!form.alias.$valid&&validacion">
+                Revise bien la informacion por favor
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-5">
+          <div class="controlplus">
+            <label class="col-3">Razon Social</label>
+            <div class="ctl col-7">
+              <input type="text" #razon_social="ngModel" id="razon_social" name="razon_social" ng-model="_persona.razon_social" spellcheck="false" autocorrect="off" maxlength="100" autocomplete="off" required>
+              <div class="alerta" ng-show="!form.razon_social.$valid&&validacion">
+                Revise bien la informacion por favor
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-5">
+          <div class="controlplus">
+            <label class="col-3">Nombres</label>
+            <div class="ctl col-7">
+              <input type="text" #nombre="ngModel" id="nombre" name="nombre" ng-model="_persona.nombre" spellcheck="false" maxlength="100" autocomplete="off" required>
+              <div class="alerta" ng-show="!form.nombre.$valid&&validacion">
+                Revise bien la informacion por favor
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-5">
+          <div class="controlplus">
+            <label class="col-3">Apellidos</label>
+            <div class="ctl col-7">
+              <input type="text" #apellido="ngModel" id="apellido" name="apellido" ng-model="_persona.apellido" spellcheck="false" maxlength="100" autocomplete="off" required>
+              <div class="alerta" ng-show="!form.apellido.$valid&&validacion">
+                Revise bien la informacion por favor
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-5">
+          <div class="controlplus">
+            <label class="col-3">Telefono Principal</label>
+            <div class="ctl col-7">
+              <input type="text" #telefono_principal="ngModel" id="telefono_principal" name="telefono_principal" ng-model="_persona.telefono_principal" spellcheck="false" maxlength="100" autocomplete="off" required>
+              <div class="alerta" ng-show="!form.telefono_principal.$valid&&validacion">
+                Revise bien la informacion por favor
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-5">
+          <div class="controlplus">
+            <label class="col-3">Latitud</label>
+            <div class="ctl col-7">
+              <input type="text" #posx="ngModel" id="posx" name="posx" ng-model="_persona.posx" spellcheck="false" maxlength="100" autocomplete="off" required>
+              <div class="alerta" ng-show="!form.posx.$valid&&validacion">
+                Revise bien la informacion por favor
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-5">
+          <div class="controlplus">
+            <label class="col-3">Longitud</label>
+            <div class="ctl col-7">
+              <input type="text" #posy="ngModel" id="posy" name="posy" ng-model="_persona.posy" spellcheck="false" maxlength="100" autocomplete="off" required>
+              <div class="alerta" ng-show="!form.posy.$valid&&validacion">
+                Revise bien la informacion por favor
+              </div>
+
+            </div>
+          </div>
+        </div>
+        <div class="col-10">
+          <div class="controlplus">
+            <label class="col-1-5-pad">Direccion Principal</label>
+            <div class="col-8-5">
+
+              <textarea id="direccion_principal" #direccion_principal="ngModel" name="direccion_principal" ng-model="_persona.direccion_principal" spellcheck="false" maxlength="100" autocomplete="off" required rows="4"></textarea>
+              <div class="alerta" ng-show="!form.direccion_principal.$valid&&validacion">
+                Revise bien la informacion por favor
+              </div>
+
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+
+
+
+    </div>
+
+    <div class="frm-container">
+      <div class="frm-container-header">
+        Datos de usuario
+      </div>
+      <div class="frm-container-body col-10">
+        <div class="col-10">
+          <div class="controlplus">
+            <label class="col-1-5">Nombre de Usuario</label>
+            <div class="ctl col-8-5">
+              <input type="text" #username="ngModel" id="username" name="username" ng-model="_usuario.username" spellcheck="false" maxlength="100" autocomplete="false" required />
+              <div class="alerta" ng-show="!form.username.$valid&&validacion">
+                Revise bien la informacion por favor
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-10">
+          <div class="controlplus">
+            <label class="col-1-5">Contraseña</label>
+            <div class="ctl col-8-5">
+
+              <input type="password" #password="ngModel" id="password" name="password" ng-model="_usuario.password" spellcheck="false" maxlength="100" autocomplete="new-password" required />
+              <div class="alerta" ng-show="!form.password.$valid&&validacion">
+                Revise bien la informacion por favor
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-10">
+
+          <div class="controlplus">
+            <label class="col-1-5">Rol</label>
+            <div class="ctl col-8-5">
+              <select id="rol" name="rol" ng-model="_rol.id">
+                <option ng-repeat="item_rol in roles" value="{{item_rol.id}}">
+                  {{item_rol.nombre}}
+                </option>
+
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="col-10">
+          <div class="controlplus">
+            <label class="col-1-5">Path</label>
+            <div class="ctl col-8-5">
+              <input type="text" #path="ngModel" id="path" name="path" ng-model="_usuario.path" spellcheck="false" maxlength="100" autocomplete="off" required />
+              <div class="alerta" ng-show="!form.path.$valid&&validacion">
+                Revise bien la informacion por favor
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+
+      </div>
+
+
+
+
+
+    </div>
+
+
+    <div class="frm-container">
+      <div class="frm-container-header">
+        Informacion del empleado
+      </div>
+      <div class="frm-container-body col-10">
+        <div class="col-10">
+          <div class="controlplus">
+            <label class="col-1-5">Rendimiento</label>
+            <div class="ctl col-8-5">
+              <input type="text" #rendimiento="ngModel" id="rendimiento" name="rendimiento" ng-model="_empleado.rendimiento" spellcheck="false" maxlength="100" autocomplete="off" required />
+              <div class="alerta" ng-show="!form.rendimiento.$valid&&validacion">
+                Revise bien la informacion por favor
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+
+
+
+
+      </div>
+      <div class="frm-container-footer">
+        <button id="btn_save" type="submit" class="btn-info"><i class="fa fa-floppy-o" aria-hidden="true"></i> Guardar</button>
+        <button id="btn_clear" (click)="limpiar()" type="button" class="btn-normal"><i class="fa fa-file-o" aria-hidden="true"></i></button>
+      </div>
+
+
+
+
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!--area de controles de accion-->
+    <div class="col-10 control-container-x">
+
+    </div>
+  </form>
+
+
+
+
+</div>
+<div id="frm" class="cellspace">
+  <div class="ch">
+    <div class="tx">Gestor de Informacion</div>
+  </div>
+  <div class="formspace">
+    <div style="min-height:41em;height:auto;" class="frm-container">
+      <div class="frm-container-header">
+        Clientes
+      </div>
+      <div class="frm-container-body col-10">
+        <form id="frm_filtro" class="innercellspace col-10">
+
+          <div class="col-3">
+            <div class="control">
+              <label>Parametro</label>
+              <input type="text" id="filtro" maxlength="100" autocomplete="off">
+              <span>Busqueda</span>
+            </div>
+          </div>
+
+
+          <button id="btn_proveedor_seek" type="submit" class="hidden"><i class="fa fa-hourglass-end" aria-hidden="true"></i></button>
+
+        </form>
+        <div  style="background-color:#ECEDEF; min-height:27em;height:auto" class="col-10">
+
+          <div  style="background-color:white" class="table-container">
+
+            <table id="tbl_result">
+              <thead>
+                <tr>
+                  <th class="Rcedula" id="hcedula">Cedula</th>
+                  <th class="Rrazon_social" id="hrazon_social">Razon Social</th>
+                  <th class="Rnombre" id="hnombre">nombre</th>
+                  <th class="Rapellido" id="hapellido">apellido</th>
+                  <th class="Rrendimiento" id="hrendimiento">direccion</th>
+                  <th class="Rusuario" id="husuario">Usuario</th>
+                  <th class="Rcontroles" id="hcontroles">Controles</th>
+
+                </tr>
+              </thead>
+              <tbody>
+                <tr ng-repeat="clt in empleados">
+                  <td>{{clt.identificador}}</td>
+                  <td>{{clt.razon_social}}</td>
+                  <td>{{clt.nombre}}</td>
+                  <td>{{clt.apellido}}</td>
+                  <td>{{clt.direccion}}</td>
+                  <td>{{clt.username}}</td>
+
+                  <td><a data-accion="editar" (click)="registroGo(clt.id)" class="btn-normal-min"><i class="fa fa-cogs" aria-hidden="true"></i></a><a data-accion="eliminar" (click)="deleteGo(clt.id)" class="btn-normal-min" href="1"><i class="fa fa-trash" aria-hidden="true"></i></a><a data-accion="imprimir" class="btn-normal-min" href="1"><i class="fa fa-print" aria-hidden="true"></i></a></td>
+                </tr>
+
+
+              </tbody>
+
+            </table>
+          </div>
+          
+
+        </div>
+        <div class="col-10">
+          <div class="control-container">
+            <a id="f-l" class="f-derecha" ng-click="paginaGo(paginacion.previusAll)"><i class="fa fa-fast-backward" aria-hidden="true"></i></a>
+            <a id="f-l-all" class="f-derecha-post" ng-click="paginaGo(paginacion.previus)"><i class="fa fa-backward" aria-hidden="true"></i></a>
+            <div class="ctrl" ng-repeat="clt in paginacion.paginas">
+              <a ng-if="clt==paginacion.pagina_actual? true : false" style="background-color:#29ABE2;color:white" ng-click="paginaGo(clt)">{{clt}}</a>
+              <a ng-if="clt!=paginacion.pagina_actual? true : false" ng-click="paginaGo(clt)">{{clt}}</a>
+            </div>
+            <a id="f-r-all" class="f-izquierda-post" ng-click="paginaGo(paginacion.next)"><i class="fa fa-forward" aria-hidden="true"></i></a>
+            <a id="f-r" class="f-izquierda" ng-click="paginaGo(paginacion.nextAll)"><i class="fa fa-fast-forward" aria-hidden="true"></i></a>
+          </div>
+        </div>
+
+      </div>
+
+
+
+    </div>
+
+  </div>
+
+
+
+</div>
+<script type="text/javascript" src="pages/empleado/empleado-controller.js"></script>
