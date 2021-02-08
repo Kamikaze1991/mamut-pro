@@ -59,6 +59,20 @@ public class UsuarioService extends Application {
 	
 	}
 	
+	@POST
+	@Path("/login")
+	@Produces(MediaType.APPLICATION_JSON)
+	@Consumes(MediaType.APPLICATION_JSON)
+	public Response login(JsonObject params){
+		UsuarioEJB ule = new UsuarioEJB();
+		List<dtoUsuario> productoResult=new ArrayList<dtoUsuario>();
+		dtoUsuario objUsuario = (dtoUsuario) Helper.JsonToObject(params.getJsonObject("usuario").asJsonObject(), new dtoUsuario());
+		if(objUsuario.getlogin()!="") {
+			productoResult=ule.consultar(objUsuario);
+		}
+		return Response.status(201).entity(productoResult).build();
+	}
+	
 	
 
 	

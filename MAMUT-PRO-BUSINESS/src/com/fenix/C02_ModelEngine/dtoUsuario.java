@@ -10,7 +10,12 @@ public class dtoUsuario {
 	String us_password; 		
 	Timestamp us_fecha_creacion; 	
 	Timestamp us_fecha_modificacion;
-	
+	public dtoUsuario() {
+		super();
+		this.us_id_usuario = 0;
+		this.us_login = "";
+		this.us_password = "";
+	}
 	public int getid_usuario() {
 		return us_id_usuario;
 	}
